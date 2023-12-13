@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">APELLIDO</th>
+            <th scope="col">CORREO</th>
+            <th scope="col">CONTRASEÑA</th>
+            <th scope="col">ELIMINAR</th>
+            <th scope="col">ACTUALIZAR</th>
+        </tr>
+    </thead>
+    @for (administrator of administrators; track $index) {
+    <tbody>
+        <tr>
+            <th scope="row">{{administrator.idadministrator}}</th>
+            <td>{{administrator.name}}</td>
+            <td>{{administrator.lastname}}</td>
+            <td>{{administrator.email}}</td>
+            <td>{{administrator.password}}</td>
+            <td><button class="btn btn-danger" (click)="delete(administrator.idcustomer)">Eliminar</button></td>
+            <td><button class="btn btn-danger" (click)="update(administrator.idcustomer)">Actualizar</button></td>
+        </tr>
+    </tbody>
+    }
+</table>

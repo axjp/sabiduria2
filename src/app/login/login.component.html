@@ -1,0 +1,53 @@
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="col col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <img class="mb-4" src="assets\img\logo.png" alt="Logo Sabiduria Infinita">
+          <h1 class="h3 mb-3 fw-normal">Inicio de Sesion</h1>
+
+          <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+              formControlName="email">
+            <label for="floatingInput">Email</label>
+            @if(form.controls['email'].hasError('required') && form.controls['email'].touched)
+            {
+            <small>* Campo Requerido</small>
+            }
+            @if(form.controls['email'].hasError('email'))
+            {
+            <small>*El correo electrónico no es válido.</small>
+            }
+          </div>
+          <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+              formControlName="password">
+            <label for="floatingPassword">Password</label>
+            @if(form.controls['password'].hasError('required')&& form.controls['password'].touched)
+            {
+            <small>* Campo Requerido</small>
+            }
+
+            @if(form.controls['password'].hasError('minlength') && form.controls['password'].touched)
+            {
+            <small>*La contraseña debe tener entre 10 y 16 caracteres.</small>
+            }
+
+            @if(form.controls['password'].hasError('maxlength') && form.controls['password'].touched)
+            {
+            <small>*El contraseña debe tener entre 10 y 16 caracteres.</small>
+            }
+          </div>
+          <div class="form-check text-start my-3">
+            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault" wfd-id="id2">
+            <label class="form-check-label" for="flexCheckDefault">
+              Recordar
+            </label>
+          </div>
+          <button class="btn btn-primary w-100 py-2" >Iniciar Sesion</button>
+          <button type="button" class="btn btn-link" routerLink="/register/0">Registrarse</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

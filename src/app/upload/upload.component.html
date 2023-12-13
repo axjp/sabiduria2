@@ -1,0 +1,89 @@
+<br>
+<div class="container d-flex align-items-center justify-content-center">
+  <div class="col col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <img src="assets\img\logo.png" alt="Logo Sabiduria Infinita">
+        <h2>Comparte tu libro</h2>
+        <form [formGroup]="form">
+          <div class="mb-3">
+            <label for="bookTitle" class="form-label">Título del Libro</label>
+            <input type="text" class="form-control" id="bookTitle" formControlName="bookTitle"
+              placeholder="Ingresa el nombre del libro" aria-describedby="bookTitleHelp">
+            {{form.controls['bookTitle'].errors|json}}
+            @if(form.controls['bookTitle'].hasError('required') && form.controls['bookTitle'].touched)
+            {
+            <small>* Campo Requerido</small>
+            }
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="nameAuthor" class="form-label">Nombre del Autor</label>
+              <input type="text" class="form-control" id="nameAuthor" formControlName="nameAuthor"
+                placeholder="Ingresa el nombre del autor del libro" aria-describedby="nameAuthorHelp">
+              {{form.controls['nameAuthor'].errors|json}}
+
+              @if(form.controls['nameAuthor'].hasError('required') && form.controls['nameAuthor'].touched)
+              {
+              <small>* Campo Requerido</small>
+              }
+            </div>
+
+            <div class="col-md-6 mb-3">
+              <label for="lastName" class="form-label">Apellido del Autor</label>
+              <input type="text" class="form-control" id="lastName" formControlName="lastName"
+                placeholder="Ingresa el apellido del autor del libro" aria-describedby="lastNameHelp">
+              @if(form.controls['lastName'].hasError('required') && form.controls['lastName'].touched)
+              {
+              <small>* Campo Requerido</small>
+              }
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="yearPublication" class="form-label">Fecha de Publicación</label>
+            <input type="date" class="form-control" id="yearPublication" formControlName="yearPublication"
+              placeholder="Ingresa el año de publicación del libro" aria-describedby="yearPublicationHelp">
+            @if(form.controls['yearPublication'].hasError('required') && form.controls['yearPublication'].touched)
+            {
+            <small>* Campo Requerido</small>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="editorial" class="form-label">Editorial</label>
+            <input type="text" class="form-control" id="editorial" formControlName="editorial" 
+            placeholder="Ingresa la editorial del libro" aria-describedby="editorialHelp">
+            @if(form.controls['editorial'].hasError('required') && form.controls['editorial'].touched)
+            {
+            <small>* Campo Requerido</small>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Descripción</label>
+            <textarea class="form-control" id="description" formControlName="description"
+              placeholder="Ingresa una descripción del libro" aria-describedby="descriptionHelp"></textarea>
+            @if(form.controls['description'].hasError('required') && form.controls['description'].touched)
+            {
+            <small>* Campo Requerido</small>
+            }
+          </div>
+
+          <div class="mb-3">
+            <label for="pdfFile" class="custom-orange-label form-label">Archivo PDF</label>
+            <input type="file" class="form-control" id="pdfFile" formControlName="pdfFile" placeholder="Seleccione archivo PDF"
+              aria-describedby="fileHelpId">
+            @if(form.controls['pdfFile'].hasError('required') && form.controls['pdfFile'].touched)
+            {
+            <small>* Campo Requerido</small>
+            }
+          </div>
+
+          <button type="button" class="btn btn-success" (click)="save()">Subir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
